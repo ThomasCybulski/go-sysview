@@ -1,0 +1,29 @@
+<div class="grid-container">
+  <mat-card class="dashboard-card">
+    <mat-card-header>
+      <mat-card-title>
+        GO Sysview
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content" *ngIf="sysInfo | async as i">
+      <mat-list>
+        <mat-list-item>Operating System: {{i.operatingSystem}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>IP Address: {{i.ip}}</mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>Memory Usage:
+        </mat-list-item>
+      </mat-list>
+      <ngx-charts-pie-chart
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="single"
+        [gradient]="gradient"
+        [legend]="showLegend"
+        [labels]="showLabels"
+        [doughnut]="isDoughnut"
+      >
+      </ngx-charts-pie-chart>
+    </mat-card-content>
+  </mat-card>
+</div>
